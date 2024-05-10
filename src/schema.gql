@@ -1,0 +1,99 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type LoginResponseDto {
+  status: Float
+  error: [String!]
+  token: String
+}
+
+type RegisterResponseDto {
+  status: Float
+  error: [String!]
+}
+
+type UserDto {
+  userId: String!
+  fullName: String!
+  userName: String!
+  email: String!
+  password: String!
+  createdAt: DateTime!
+  deletedAt: DateTime
+  updatedAt: DateTime!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type ResponseSingleUserDto {
+  status: Int
+  data: UserDto
+  error: [String!]
+}
+
+type ResponseMultipleUserDto {
+  status: Int
+  data: [UserDto!]
+  error: [String!]
+}
+
+type Query {
+  findOneById(body: FindByIdDto!): ResponseSingleUserDto!
+  findAll(body: SearchUserDto!): ResponseMultipleUserDto!
+  findById(body: FindByIdDto!): ResponseSingleUserDto!
+  login(body: LoginDto!): LoginResponseDto!
+}
+
+input FindByIdDto {
+  userId: String!
+}
+
+input SearchUserDto {
+  fullName: String
+  userName: String
+  email: String
+  limit: Int
+  role: String
+}
+
+input LoginDto {
+  email: String!
+  password: String!
+}
+
+type Mutation {
+  create(body: CreateUserDto!): ResponseSingleUserDto!
+  update(body: UpdateUserDto!): ResponseSingleUserDto!
+  delete(body: FindByIdDto!): ResponseSingleUserDto!
+  register(body: RegisterRequestDto!): RegisterResponseDto!
+}
+
+input CreateUserDto {
+  fullName: String!
+  userName: String!
+  email: String!
+  password: String!
+}
+
+input UpdateUserDto {
+  userId: String!
+  userDto: UpdateUser!
+}
+
+input UpdateUser {
+  fullName: String
+  userName: String
+  email: String
+  password: String
+}
+
+input RegisterRequestDto {
+  fullName: String!
+  userName: String!
+  email: String!
+  password: String!
+}
