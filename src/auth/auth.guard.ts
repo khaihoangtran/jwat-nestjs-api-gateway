@@ -6,7 +6,7 @@ import {
   Injectable,
   UnauthorizedException,
 } from '@nestjs/common';
-import { ValidateResponse } from 'src/proto/auth';
+import { ValidateResponse } from 'jwat-nestjs-common';
 import { AuthService } from './auth.service';
 import { Request } from 'express';
 

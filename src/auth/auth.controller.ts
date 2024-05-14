@@ -15,7 +15,7 @@ import {
   LoginResponse,
   RegisterRequest,
   RegisterResponse,
-} from 'src/proto/auth';
+} from 'jwat-nestjs-common';
 import { AuthService } from './auth.service';
 
 @Controller('auth')

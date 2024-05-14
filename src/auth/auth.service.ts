@@ -9,7 +9,7 @@ import {
   RegisterRequest,
   RegisterResponse,
   ValidateResponse,
-} from 'src/proto/auth';
+} from 'jwat-nestjs-common';
 
 @Injectable()
 export class AuthService {

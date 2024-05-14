@@ -14,7 +14,7 @@ import {
   UpdateRequest,
   updateUserDto,
   User,
-} from 'src/proto/user';
+} from 'jwat-nestjs-common';
 
 @InputType()
 export class CreateUserDto implements CreateRequest {

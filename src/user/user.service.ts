@@ -8,10 +8,9 @@ import {
   UpdateRequest,
   USER_SERVICE_NAME,
   UserServiceClient,
-} from '../proto/user';
+} from 'jwat-nestjs-common'
 import { Inject, Injectable, OnModuleInit } from '@nestjs/common';
 import { Observable } from 'rxjs';
-
 @Injectable()
 export class UserService implements OnModuleInit {
   private svc: UserServiceClient;

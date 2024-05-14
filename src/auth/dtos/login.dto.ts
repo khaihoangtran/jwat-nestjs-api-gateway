@@ -1,12 +1,8 @@
 import { Field, InputType, ObjectType } from '@nestjs/graphql';
-import { RegisterRequest, RegisterResponse } from 'src/proto/auth';
+import { LoginRequest, LoginResponse } from 'jwat-nestjs-common';
 
 @InputType()
-export class RegisterRequestDto implements RegisterRequest {
-  @Field()
-  fullName: string;
-  @Field()
-  userName: string;
+export class LoginDto implements LoginRequest {
   @Field()
   email: string;
   @Field()
@@ -14,9 +10,11 @@ export class RegisterRequestDto implements RegisterRequest {
 }
 
 @ObjectType()
-export class RegisterResponseDto implements RegisterResponse {
+export class LoginResponseDto implements LoginResponse {
   @Field({ nullable: true })
   status: number;
   @Field((type) => [String], { nullable: true })
   error: string[];
+  @Field({ nullable: true })
+  token: string;
 }
